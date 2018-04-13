@@ -12,11 +12,15 @@ export default class Dashboard extends Component {
     }
   }
 
-  // getHouses() {
-  //   axios.get('/api/houses').then(res => {
+  componentDidMount() {
+    this.getHouses()
+  }
 
-  //   })
-  // }
+  getHouses() {
+    axios.get('/api/houses').then(res => {
+      res.status(200).send(houses)
+    })
+  }
 
   render() {
     let list = this.state.houses.map((house, i) => {
