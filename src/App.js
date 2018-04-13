@@ -12,7 +12,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <House />
         { route }
       </div>
     );

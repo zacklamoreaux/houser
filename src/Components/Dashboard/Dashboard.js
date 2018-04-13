@@ -19,21 +19,17 @@ export default class Dashboard extends Component {
     })
   }
 
-
-
   render() {
     let list = this.state.houses.map((house, i) => {
       console.log(this.state.houses)
       return (
-        <House key={i} house={house} />
+        <li><House key={i} house={house} /></li>
       )
     })
     return (
       <div>
-        Dashboard
         <ul>{list}</ul>
         <Link to='/wizard'><button>Add New Property</button></Link>
-        <House />
       </div>
     )
   }
