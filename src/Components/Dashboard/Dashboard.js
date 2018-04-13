@@ -15,7 +15,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     axios.get('/api/houses').then( res => {
       console.log(res)
-      this.state.houses.push(res)
+      this.state.houses.push(res.data)
     })
   }
 
