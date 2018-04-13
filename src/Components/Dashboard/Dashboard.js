@@ -13,14 +13,13 @@ export default class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.getHouses()
-  }
-
-  getHouses() {
-    axios.get('/api/houses').then(res => {
-      res.status(200).send(houses)
+    axios.get('/api/houses').then( res => {
+      console.log(res)
+      this.state.houses.push(res)
     })
   }
+
+
 
   render() {
     let list = this.state.houses.map((house, i) => {

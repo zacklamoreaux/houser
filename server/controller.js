@@ -2,19 +2,25 @@ let houses = []
 let id = 0;
 
 module.exports = {
-  getHouses: (req, res) => {
-    res.status(200).send(houses)
+  getHouses: (req, res, next) => {
+    const dbInstance = req.app.get('db')
+
+    dbInstance.read_houses()
+    .then( houses => res.status(200).send(houses) )
+    .catch( () => res.status(500).send(console.error()))
   },
-  postHouse: (req, res) => {
-    const { name, address, city, state, zipcode } = req.body
-    houses.push({ id, name, address, city, state, zipcode})
-    id++
-    res.status(200).send(houses)
+  postHouse: (req, res, next) => {
+    const dbInstance = req.app.get('db')
+    
+    dbInstance.create_house()
+    .then( () => res.status(200).send() )
+    .catch( () => res.status(500).send() )
   },
-  deleteHouse: (req, res) => {
-    const deleteID = req.params.id
-    const houseIndex = houses.findIndex( house => house.id == deleteID)
-    houses.splice(houseIndex, 1)
-    res.status(200).send(houses)
+  deleteHouse: (req, res, next) => {
+    const dbInstance = req.app.get('db')
+
+    dbInstance.delete_house()
+    .then( () => res.status(200).send() )
+    .catch( () => res.status(500).send())
   }
 }
