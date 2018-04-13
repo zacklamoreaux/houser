@@ -23,6 +23,7 @@ export default class Wizard extends Component {
       name: e.target.value
     })
   }
+  
 
   handleAddressChange(e) {
     this.setState({
