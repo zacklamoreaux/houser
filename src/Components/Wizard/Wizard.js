@@ -17,7 +17,6 @@ export default class Wizard extends Component {
     this.handleCityChange = this.handleCityChange.bind(this)
     this.handleStateChange = this.handleStateChange.bind(this)
     this.handleZipChange = this.handleZipChange.bind(this)
-
   }
 
   handleNameChange(e) {
@@ -25,7 +24,6 @@ export default class Wizard extends Component {
       name: e.target.value
     })
   }
-
 
   handleAddressChange(e) {
     this.setState({
