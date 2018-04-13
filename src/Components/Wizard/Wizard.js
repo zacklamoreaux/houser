@@ -10,7 +10,7 @@ export default class Wizard extends Component {
       address: '',
       city: '',
       state: '',
-      zipcode: ''
+      zipcode: 0
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleAddressChange = this.handleAddressChange.bind(this)
